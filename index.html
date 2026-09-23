@@ -3,26 +3,287 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="地域の資源、人、設備、自然環境を活かし、菌・昆虫・発酵・熱利用などの技術で次の産業へつなぐ地域活性化構想。">
   <title>地域の資源がめぐれば、人が動き、未来が育つ。</title>
+  <style>
+    :root{
+      --navy:#0b3356;--blue:#2177b8;--green:#2f8c57;--green-dark:#1f6f44;
+      --orange:#e98624;--red:#c94a4a;--ink:#173042;--muted:#5c7080;
+      --line:#d9e6ec;--bg:#f5faf7;--shadow:0 10px 30px rgba(18,54,72,.10);
+      --radius:22px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;color:var(--ink);background:
+      radial-gradient(circle at 10% 0%,#eef8ef 0,transparent 28%),
+      radial-gradient(circle at 95% 8%,#eef7ff 0,transparent 24%),var(--bg);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      line-height:1.8;
+    }
+    a{color:inherit;text-decoration:none} img{max-width:100%;display:block}
+    .wrap{width:min(1180px,calc(100% - 32px));margin:auto}
+    header{
+      position:sticky;top:0;z-index:20;backdrop-filter:blur(14px);
+      background:rgba(255,255,255,.86);border-bottom:1px solid rgba(217,230,236,.9)
+    }
+    .nav{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:800;color:var(--navy);letter-spacing:.02em;white-space:nowrap}
+    .navlinks{display:flex;gap:20px;flex-wrap:wrap;font-size:.93rem;font-weight:700;color:#486170}
+    .navlinks a:hover{color:var(--green-dark)}
+    .hero{padding:72px 0 42px;text-align:center}
+    .hero h1{
+      margin:0 auto;max-width:1000px;color:var(--navy);
+      font-size:clamp(2rem,4.8vw,4.35rem);line-height:1.18;letter-spacing:-.03em
+    }
+    .hero h1 .accent{color:var(--green-dark)}
+    .hero .sub{margin:20px auto 0;font-size:clamp(1.05rem,2.2vw,1.55rem);font-weight:800;color:#174f38}
+    .hero .lead{max-width:830px;margin:24px auto 0;color:var(--muted);font-size:1.07rem}
+    .hero-actions{margin-top:28px;display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 20px;
+      border-radius:999px;font-weight:800;border:1px solid transparent;transition:.2s ease
+    }
+    .btn.primary{color:#fff;background:linear-gradient(135deg,var(--green),var(--green-dark));box-shadow:0 8px 18px rgba(47,140,87,.22)}
+    .btn.secondary{background:#fff;color:var(--navy);border-color:#cddde6}.btn:hover{transform:translateY(-1px)}
+    .concept-image{
+      margin:26px auto 0;background:#fff;padding:10px;border-radius:24px;box-shadow:var(--shadow);
+      border:1px solid #dfeaec;overflow:hidden
+    }
+    .concept-image img{border-radius:16px}
+    section{padding:70px 0}
+    .section-head{margin-bottom:30px}
+    .eyebrow{color:var(--green-dark);font-size:.86rem;font-weight:900;letter-spacing:.12em}
+    .section-head h2{margin:6px 0 8px;font-size:clamp(1.7rem,3.5vw,2.7rem);color:var(--navy);line-height:1.25}
+    .section-head p{margin:0;max-width:820px;color:var(--muted)}
+    .story{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+    .story-card{
+      background:#fff;border:1px solid #dfe9ed;border-radius:var(--radius);padding:24px;
+      box-shadow:0 5px 20px rgba(21,61,81,.06);min-height:230px
+    }
+    .story-card .no{
+      width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:900;margin-bottom:14px
+    }
+    .story-card:nth-child(1) .no{background:var(--red)}
+    .story-card:nth-child(2) .no{background:var(--green)}
+    .story-card:nth-child(3) .no{background:var(--orange)}
+    .story-card:nth-child(4) .no{background:var(--blue)}
+    .story-card h3{margin:0 0 9px;color:var(--navy);font-size:1.22rem}
+    .story-card p{margin:0;color:#587080;font-size:.95rem}
+    .resource-grid,.tech-grid,.region-grid{display:grid;gap:18px}
+    .resource-grid{grid-template-columns:repeat(3,1fr)}
+    .tech-grid{grid-template-columns:repeat(4,1fr)}
+    .region-grid{grid-template-columns:repeat(3,1fr)}
+    .resource,.tech,.region{
+      border-radius:var(--radius);background:#fff;border:1px solid #dfe9ed;padding:24px;
+      box-shadow:0 5px 20px rgba(21,61,81,.05)
+    }
+    .resource h3,.tech h3,.region h3{margin:0 0 8px;color:var(--navy)}
+    .resource p,.tech p,.region p{margin:0;color:var(--muted);font-size:.95rem}
+    .tag{display:inline-block;margin-bottom:11px;padding:5px 10px;border-radius:999px;font-weight:800;font-size:.8rem;background:#edf8f1;color:var(--green-dark)}
+    .tech:nth-child(1){border-top:5px solid #6c9b47}.tech:nth-child(2){border-top:5px solid #c88b36}
+    .tech:nth-child(3){border-top:5px solid #9b713e}.tech:nth-child(4){border-top:5px solid #3c8bc2}
+    .tech strong{display:block;margin:10px 0 5px;color:#274a5f}
+    .idea-box{margin-top:26px;border-radius:var(--radius);padding:28px;background:linear-gradient(135deg,#f1faf4,#eef7ff);border:1px solid #d4e6df}
+    .idea-box h3{margin:0 0 10px;color:var(--green-dark);font-size:1.35rem}.idea-box p{margin:0;color:#506879}
+    .opt{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:stretch}
+    .opt-main,.opt-side{border-radius:var(--radius);padding:28px;background:#fff;border:1px solid #dfe9ed;box-shadow:0 6px 20px rgba(21,61,81,.05)}
+    .opt-main h3,.opt-side h3{margin-top:0;color:var(--navy)}
+    .metric-list{display:grid;gap:12px;margin-top:16px}
+    .metric{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px dashed #dce7eb}
+    .metric:first-child{border-top:none}.metric b{color:var(--green-dark);min-width:115px}
+    .region .key{margin-top:14px;color:var(--green-dark);font-weight:800;font-size:.92rem}
+    .japan{background:linear-gradient(135deg,rgba(10,52,83,.96),rgba(31,111,68,.95));color:#fff}
+    .japan .section-head h2,.japan .eyebrow{color:#fff}.japan .section-head p{color:#dfefeb}
+    .japan-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}
+    .japan-card{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:20px}
+    .japan-card h3{margin:0 0 6px;font-size:1.05rem}.japan-card p{margin:0;color:#e5f2ef;font-size:.91rem}
+    .author{padding:56px 0 72px}
+    .author-box{
+      background:#fff;border:1px solid #dfe9ed;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);
+      display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center
+    }
+    .author h2{margin:0 0 6px;color:var(--navy)}.author p{margin:4px 0;color:var(--muted)}
+    .author-meta{text-align:right;color:#5f7785;font-size:.9rem}
+    footer{padding:28px 0 38px;color:#6a7d87;text-align:center;font-size:.86rem}
+    @media(max-width:960px){
+      .story,.resource-grid,.region-grid{grid-template-columns:repeat(2,1fr)}
+      .tech-grid{grid-template-columns:repeat(2,1fr)}.opt{grid-template-columns:1fr}.japan-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:640px){
+      .nav{align-items:flex-start;padding:13px 0}.navlinks{display:none}.hero{padding-top:50px}
+      .story,.resource-grid,.tech-grid,.region-grid,.japan-grid{grid-template-columns:1fr}
+      .author-box{grid-template-columns:1fr}.author-meta{text-align:left}section{padding:54px 0}
+    }
+  </style>
 </head>
-
 <body>
-  <h1>地域の資源がめぐれば、人が動き、未来が育つ。</h1>
 
-  <p>菌がほぐし、昆虫がつなぐ。熱はめぐる。</p>
+<header>
+  <div class="wrap nav">
+    <div class="brand">MEGURU PROJECT</div>
+    <nav class="navlinks">
+      <a href="#concept">構想</a>
+      <a href="#resources">地域資源</a>
+      <a href="#technology">技術</a>
+      <a href="#system">全体最適</a>
+      <a href="#regions">地域モデル</a>
+      <a href="#about">発案者</a>
+    </nav>
+  </div>
+</header>
 
-  <hr>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <h1>地域の資源がめぐれば、<span class="accent">人が動き、未来が育つ。</span></h1>
+      <p class="sub">菌がほぐし、昆虫がつなぐ。熱はめぐる。</p>
+      <p class="lead">
+        地域の自然、産業、人、設備、場所、そしてこれまで使い道が限られていた資源を見直し、
+        次の産業が使える形へ変える。地域内で活かせるものは地域内で活かし、
+        高い価値を持つものは地域外へつなぐ。地域の内側から産業を強くするための構想です。
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#concept">構想を見る</a>
+        <a class="btn secondary" href="#technology">技術を見る</a>
+      </div>
 
-  <h2>地域資源を活かした地域活性化構想</h2>
+      <figure class="concept-image">
+        <img src="img21.png" alt="地域資源活用の構想図">
+      </figure>
+    </div>
+  </section>
 
-  <p>
-    このサイトでは、地域にある自然、産業、人、設備、
-    そしてこれまで使い道が限られていた資源を活かし、
-    地域の新しい価値につなげる構想を紹介します。
-  </p>
+  <section id="concept">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">CONCEPT</div>
+        <h2>地域にあるものを、次の産業へつなぎ直す</h2>
+        <p>外から新しい産業を持ってくるだけではなく、地域内にすでにある資源・人・設備・場所を見直し、地域の中に新しい取引、仕事、価値を生み出すことを目指します。</p>
+      </div>
+      <div class="story">
+        <article class="story-card"><div class="no">1</div><h3>地域の課題</h3><p>人口減少、産業縮小、外部依存が進む一方で、地域内には十分に活用されていない資源や場所、人材が残っています。</p></article>
+        <article class="story-card"><div class="no">2</div><h3>眠る資源を見直す</h3><p>木くず、竹、食品残さ、家畜ふん尿、低温排熱、地下水、遊休施設などを「使い道が限られていた資源」として捉え直します。</p></article>
+        <article class="story-card"><div class="no">3</div><h3>新しい価値へ</h3><p>菌、昆虫、発酵、ヒートポンプなどを使い、そのままでは使いにくいものを次の産業が使える形へ変えます。</p></article>
+        <article class="story-card"><div class="no">4</div><h3>地域の活性化と連携</h3><p>地域内で使えるものは地域内へ。高付加価値化したものや余剰資源は地域外へ。もの・エネルギー・人のつながりを広げます。</p></article>
+      </div>
+    </div>
+  </section>
 
-  <p>
-    現在、サイトを準備中です。
-  </p>
+  <section id="resources">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">REGIONAL RESOURCES</div>
+        <h2>「価値がない」のではなく、使い道が限られていただけ</h2>
+        <p>地域資源は物質だけではありません。自然条件、熱、水、人、設備、場所、地域産業の知識も含めて、その地域が持つもの全体を対象にします。</p>
+      </div>
+      <div class="resource-grid">
+        <article class="resource"><span class="tag">物質</span><h3>木質・食品・副産物</h3><p>木くず、おが粉、竹、農業残さ、食品残さ、おから、米ぬか、廃菌床、家畜ふん尿など。</p></article>
+        <article class="resource"><span class="tag">熱・水</span><h3>未利用熱・自然冷熱</h3><p>工場排熱、発酵熱、地下水、河川水、湧水、冬季冷熱、雪、地中熱、温泉熱など。</p></article>
+        <article class="resource"><span class="tag">人・場所</span><h3>設備・空間・経験</h3><p>空き施設、遊休工場、倉庫、廃トンネル、既存設備、地域の技術者、農林水産業の経験など。</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="technology">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">TECHNOLOGY</div>
+        <h2>資源を「次に使える形」へ変える</h2>
+        <p>技術そのものを目的にするのではなく、地域資源に次の受け手をつくるための道具として使います。</p>
+      </div>
+
+      <div class="tech-grid">
+        <article class="tech"><h3>菌の力</h3><p>木質や有機物を分解・改質し、キノコ生産や次工程で使いやすい状態へ変えます。</p><strong>例</strong><p>木質 → キノコ / 菌処理木質 / 発酵原料</p></article>
+        <article class="tech"><h3>昆虫の力</h3><p>食品残さなどをタンパク質・脂質を含む生物資源へ変え、飼料原料などへつなぎます。</p><strong>例</strong><p>食品残さ → 昆虫 → 養殖・養鶏用飼料</p></article>
+        <article class="tech"><h3>発酵の力</h3><p>有機物を安定化し、堆肥・肥料・バイオガス・熱など複数の価値へ変換します。</p><strong>例</strong><p>家畜ふん尿 → 発酵 → 肥料・ガス・熱</p></article>
+        <article class="tech"><h3>熱の力</h3><p>排熱や自然熱を熱交換・ヒートポンプで利用し、生物や加工工程に適した温度環境をつくります。</p><strong>例</strong><p>排熱・地下水 → 温度調整 → 菌・昆虫・乾燥</p></article>
+      </div>
+
+      <div class="idea-box">
+        <h3>重要なのは「形・温度・時間・場所」を変えること</h3>
+        <p>重く腐りやすいものは、乾燥・発酵・昆虫化などによって保存・輸送しやすい形へ。季節限定の熱や冷熱は、蓄熱・蓄冷によって利用時期をずらす。こうした変換により、地域内だけでなく他地域との連携も可能になります。</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="system">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">SYSTEM DESIGN</div>
+        <h2>単体最適ではなく、地域全体で価値を見る</h2>
+        <p>キノコ、昆虫、木質利用、排熱利用を個別に評価するだけではなく、地域全体として外部支出を減らし、どれだけ新しい価値を地域内に残せるかを重視します。</p>
+      </div>
+      <div class="opt">
+        <div class="opt-main">
+          <h3>全体最適で見るもの</h3>
+          <div class="metric-list">
+            <div class="metric"><b>資源</b><span>これまで利用しにくかったものに、次の用途をつくる。</span></div>
+            <div class="metric"><b>熱</b><span>自然温度・排熱を優先して使い、不足分だけを補う。</span></div>
+            <div class="metric"><b>経済</b><span>飼料・肥料・エネルギー等の外部購入を減らし、地域内取引を増やす。</span></div>
+            <div class="metric"><b>仕事</b><span>地域内の既存産業同士の接点から、新しい役割や雇用を生み出す。</span></div>
+          </div>
+        </div>
+        <div class="opt-side">
+          <h3>緩やかな地域連携</h3>
+          <p>一つの巨大施設や一社ですべてを統合する必要はありません。林業、食品、畜産、農業、養殖、製造業、自治体、大学などが、それぞれの余剰と需要だけをつなぐ「緩やかな地域連携」を基本とします。</p>
+          <p>小さな接点が増えることで、地域内に新しい取引、新しい仕事、新しい関係が生まれます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="regions">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">REGIONAL MODELS</div>
+        <h2>答えは全国一律ではなく、地域ごとに変える</h2>
+        <p>共通化するのは「地域資源を見つけ、次の産業へつなぎ、全体で評価する」という考え方です。実際の組み合わせは、その土地の気候・地形・産業・人材によって変わります。</p>
+      </div>
+      <div class="region-grid">
+        <article class="region"><h3>九州型</h3><p>暖かい気候、竹・杉、養鶏、養殖などを組み合わせる。</p><div class="key">暖熱 × 昆虫 × 養鶏・養殖</div></article>
+        <article class="region"><h3>中部型</h3><p>杉・ヒノキ、水、製造業排熱を組み合わせる。</p><div class="key">森林 × 菌 × 水 × 工業排熱</div></article>
+        <article class="region"><h3>東北型</h3><p>冷涼な気候、森林、キノコ、畜産、発酵熱を組み合わせる。</p><div class="key">冷熱 × キノコ × 畜産・発酵</div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="japan">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">WHY JAPAN</div>
+        <h2>地域の違いを、国家の強みに変える</h2>
+        <p>日本は国土が狭い一方、その中に多様な自然条件と産業が凝縮されています。全国一律の正解ではなく、その違いを活かすことがこの構想の前提です。</p>
+      </div>
+      <div class="japan-grid">
+        <div class="japan-card"><h3>多様な温度帯</h3><p>南北に長く、温暖地から寒冷地まで異なる気候を持つ。</p></div>
+        <div class="japan-card"><h3>山・水・森林・海</h3><p>木質、水、冷熱、地中熱、沿岸産業などの地域資源が近接する。</p></div>
+        <div class="japan-card"><h3>農林水産業と製造業</h3><p>地域ごとに異なる産業があり、組み合わせ方そのものが強みになる。</p></div>
+        <div class="japan-card"><h3>分散型の実証フィールド</h3><p>地域ごとに異なるモデルを試し、成功例や知見を他地域へ展開できる。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="author">
+    <div class="wrap">
+      <div class="author-box">
+        <div>
+          <h2>発案・構想</h2>
+          <p><strong>［ここに実名を入力］</strong></p>
+          <p>本サイトは、地域資源の有効活用と地域産業の活性化を目的とした構想を公開するものです。</p>
+        </div>
+        <div class="author-meta">
+          <div>First published: 2026-__-__</div>
+          <div>Project: MEGURU PROJECT</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 MEGURU PROJECT</div>
+</footer>
+
 </body>
 </html>
