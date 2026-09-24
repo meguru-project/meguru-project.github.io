@@ -55,7 +55,7 @@
     .section-head{margin-bottom:30px}
     .eyebrow{color:var(--green-dark);font-size:.86rem;font-weight:900;letter-spacing:.12em}
     .section-head h2{margin:6px 0 8px;font-size:clamp(1.7rem,3.5vw,2.7rem);color:var(--navy);line-height:1.25}
-    .section-head p{margin:0;max-width:820px;color:var(--muted)}
+    .section-head p{margin:0;max-width:10500px;color:var(--muted)}
     .story{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .story-card{
       background:#fff;border:1px solid #dfe9ed;border-radius:var(--radius);padding:24px;
@@ -100,11 +100,57 @@
     .japan-card h3{margin:0 0 6px;font-size:1.05rem}.japan-card p{margin:0;color:#e5f2ef;font-size:.91rem}
     .author{padding:56px 0 72px}
     .author-box{
-      background:#fff;border:1px solid #dfe9ed;border-radius:var(--radius);padding:28px;box-shadow:var(--shadow);
-      display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center
+      background:#fff;
+      border:1px solid #dfe9ed;
+      border-radius:var(--radius);
+      padding:32px;
+      box-shadow:var(--shadow)
     }
-    .author h2{margin:0 0 6px;color:var(--navy)}.author p{margin:4px 0;color:var(--muted)}
-    .author-meta{text-align:right;color:#5f7785;font-size:.9rem}
+    .author h2{
+      margin:0 0 14px;
+      color:var(--navy)
+    }
+    .author-intro{
+      max-width:1050px;
+      color:var(--muted)
+    }
+    .author-intro p{
+      margin:0 0 10px
+    }
+    .author-info{
+      margin-top:26px;
+      padding-top:22px;
+      border-top:1px solid #dfe7eb;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:28px
+    }
+    .author-info h3{
+      margin:0 0 6px;
+      color:var(--navy);
+      font-size:1rem
+    }
+    .author-info p{
+      margin:0;
+      color:#5f7785
+    }
+    .citation-box{
+      margin-top:22px;
+      padding:18px 20px;
+      background:#f5faf7;
+      border-left:4px solid var(--green);
+      border-radius:10px
+    }
+    .citation-box strong{
+      display:block;
+      margin-bottom:5px;
+      color:var(--green-dark)
+    }
+    .citation-box p{
+      margin:0;
+      color:#5f7785;
+      font-size:.9rem
+    }
     footer{padding:28px 0 38px;color:#6a7d87;text-align:center;font-size:.86rem}
 
     .documents{background:linear-gradient(180deg,#ffffff,#f5fbf7)}
@@ -136,7 +182,7 @@
     @media(max-width:640px){
       .nav{align-items:flex-start;padding:13px 0}.navlinks{display:none}.hero{padding-top:50px}
       .story,.resource-grid,.tech-grid,.region-grid,.japan-grid{grid-template-columns:1fr}
-      .author-box{grid-template-columns:1fr}.author-meta{text-align:left}section{padding:54px 0}
+      .author-info{grid-template-columns:1fr}section{padding:54px 0}
     }
   </style>
 </head>
@@ -337,23 +383,45 @@
       </div>
     </div>
   </section>
-
+  
   <section id="about" class="author">
     <div class="wrap">
       <div class="author-box">
-        <div>
+        <div class="author-intro">
           <h2>本構想の利用について</h2>
-          <p>本サイトにおける提案は、地域資源の有効活用と地域産業の活性化を目的としています。本構想を基に独自の地域モデルや技術案へ発展させることを歓迎します。</p>
-          <p>本構想を引用・参考にして資料、研究、提案等を作成される場合は、出典として本資料名、発案者名および本サイトURLを明記してください。</p>
-          <p><strong>Masanobu Ariyoshi</strong></p>
+          <p>
+            本サイトにおける提案は、地域資源の有効活用と地域産業の活性化を目的としています。
+            本構想を基に、独自の地域モデルや技術案へ発展させることを歓迎します。
+          </p>
+          <p>
+            本構想を引用・参考にして資料、研究、提案等を作成される場合は、
+            出典として本資料名、発案者名および本サイトURLを明記してください。
+          </p>
         </div>
-        <div class="author-meta">
-          <div>First published: 2026-09-23</div>
-          <div>Project: MEGURU PROJECT</div>
+
+        <div class="author-info">
+          <div>
+            <h3>発案・構想</h3>
+            <p><strong>Masanobu Ariyoshi</strong></p>
+          </div>
+          <div>
+            <h3>公開情報</h3>
+            <p>First published: 2026-09-23</p>
+            <p>Project: MEGURU PROJECT</p>
+          </div>
+        </div>
+
+        <div class="citation-box">
+          <strong>出典表記例</strong>
+          <p>
+            Masanobu Ariyoshi「地域の資源がめぐれば、人が動き、未来が育つ。― 基本構想」
+            MEGURU PROJECT, 2026　https://meguru-project.github.io/
+          </p>
         </div>
       </div>
     </div>
   </section>
+
 </main>
 
 <footer>
